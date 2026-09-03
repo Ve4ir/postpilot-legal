@@ -1,0 +1,183 @@
+:root {
+  color-scheme: light;
+  --ink: #17253a;
+  --muted: #64748b;
+  --line: #dbe5f0;
+  --paper: #ffffff;
+  --wash: #f3f7fc;
+  --blue: #1769d2;
+  --blue-dark: #0f4fa5;
+  --green: #11845d;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 8% 5%, rgba(39, 121, 226, .12), transparent 30rem),
+    var(--wash);
+  font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+a { color: var(--blue); }
+a:hover { color: var(--blue-dark); }
+
+.site-header {
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 255, 255, .92);
+}
+
+.header-inner,
+main,
+.footer-inner {
+  width: min(100% - 32px, 860px);
+  margin-inline: auto;
+}
+
+.header-inner {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  color: white;
+  background: linear-gradient(145deg, #2e7ee9, #1758b5);
+  box-shadow: 0 7px 18px rgba(23, 105, 210, .22);
+}
+
+nav { display: flex; flex-wrap: wrap; gap: 16px; }
+nav a { color: #52637a; font-size: .9rem; font-weight: 650; text-decoration: none; }
+nav a[aria-current="page"] { color: var(--blue); }
+
+main { padding-block: 52px 64px; }
+
+.document {
+  padding: clamp(24px, 5vw, 48px);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--paper);
+  box-shadow: 0 18px 55px rgba(30, 55, 88, .08);
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--blue);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+h1, h2 { line-height: 1.2; }
+h1 { margin: 0; font-size: clamp(2rem, 6vw, 3.25rem); letter-spacing: -.035em; }
+h2 { margin: 2.2rem 0 .65rem; font-size: 1.3rem; }
+p, li { color: #405168; }
+.lead { max-width: 680px; margin: 16px 0 0; color: var(--muted); font-size: 1.08rem; }
+.updated { margin: 11px 0 0; color: #8491a3; font-size: .88rem; }
+ul, ol { padding-left: 1.35rem; }
+li + li { margin-top: .4rem; }
+
+.notice {
+  margin: 24px 0;
+  padding: 16px 18px;
+  border: 1px solid #cfe1f8;
+  border-radius: 12px;
+  background: #f3f8ff;
+}
+.notice strong { color: #1f4777; }
+.notice p { margin: 4px 0 0; }
+
+.cards {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.card {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  color: inherit;
+  background: #fbfdff;
+  text-decoration: none;
+}
+.card:hover { border-color: #a9c9f1; box-shadow: 0 8px 22px rgba(23, 80, 150, .08); }
+.card strong { display: block; color: #243a56; }
+.card span { display: block; margin-top: 5px; color: var(--muted); font-size: .9rem; }
+
+.steps { counter-reset: steps; list-style: none; padding: 0; }
+.steps li { position: relative; min-height: 42px; padding-left: 52px; }
+.steps li::before {
+  counter-increment: steps;
+  content: counter(steps);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: white;
+  background: var(--blue);
+  font-weight: 800;
+}
+.steps li + li { margin-top: 16px; }
+
+code {
+  padding: .15rem .4rem;
+  border: 1px solid #d8e2ee;
+  border-radius: 5px;
+  color: #244b79;
+  background: #f5f8fc;
+}
+
+.contact-box {
+  margin-top: 26px;
+  padding: 18px;
+  border-left: 4px solid var(--green);
+  border-radius: 8px;
+  background: #f1faf6;
+}
+.contact-box p { margin: 0; }
+
+footer { border-top: 1px solid var(--line); background: #fff; }
+.footer-inner {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  color: #718096;
+  font-size: .85rem;
+}
+.footer-inner a { color: #52637a; }
+
+@media (max-width: 700px) {
+  .header-inner { padding-block: 14px; align-items: flex-start; flex-direction: column; gap: 10px; }
+  nav { gap: 12px; }
+  main { padding-block: 24px 40px; }
+  .cards { grid-template-columns: 1fr; }
+  .footer-inner { padding-block: 18px; align-items: flex-start; flex-direction: column; }
+}
